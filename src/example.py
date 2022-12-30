@@ -1,4 +1,5 @@
 # https://github.com/google/lightweight_mmm/blob/main/examples/simple_end_to_end_demo.ipynb
+import numpy as np
 import jax.numpy as jnp
 import numpyro
 from lightweight_mmm import lightweight_mmm
@@ -18,6 +19,9 @@ media_data, extra_features, target, costs = utils.simulate_dummy_data(
     n_extra_features=n_extra_features)
 
 print("media_data")
+# media_data = jnp.array(np.random.rand(117,3))
+media_data = np.random.rand(117,3)
+print(type(media_data))
 print(media_data)
 print(media_data.shape)
 
@@ -70,7 +74,7 @@ number_samples=1000
 #     media=media_data_train,
 #     media_prior=costs,
 #     target=target_train,
-#     extra_features=extra_features_train,
+#     # extra_features=extra_features_train,
 #     number_warmup=number_warmup,
 #     number_samples=number_samples,
 #     seed=SEED)
